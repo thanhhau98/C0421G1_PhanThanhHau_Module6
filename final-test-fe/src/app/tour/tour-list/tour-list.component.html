@@ -1,0 +1,85 @@
+<h1 style="color: #1BB1DC" class="text-center">Danh sách Tour</h1>
+<a [routerLink]="['/tour/create']" class="btn btn-primary"  role="button">Create</a>
+<table class="table">
+  <tr>
+    <td>STT</td>
+    <td>Id Tour</td>
+<!--    <td>Id Member</td>-->
+<!--    <td>Id Scope</td>-->
+<!--    <td>Id Tour Type</td>-->
+    <td>Name Tour</td>
+    <td>Location</td>
+    <td>Start Date</td>
+    <td>Max Of Member</td>
+    <td>Calendar</td>
+    <td>Cost</td>
+    <td>Action</td>
+  </tr>
+  <tr *ngFor="let tour of tourList; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{tour.id}}</td>
+<!--    <td>{{tour.member.}}</td>-->
+<!--    <td>{{tour.scope}}</td>-->
+<!--    <td>{{tour.tourType}}</td>-->
+    <td>{{tour.name}}</td>
+    <td>{{tour.location}}</td>
+    <td>{{tour.startDate}}</td>
+    <td>{{tour.maxOfMember}}</td>
+    <td>{{tour.calendar}}</td>
+    <td>{{tour.cost}}</td>
+    <td>
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+        Delete
+      </button>
+<!--      <button type="button" (click)="click(tour.id,tour.name)"  class="btn btn-danger" data-toggle="modal" data-target="#modelId">-->
+<!--        Delete-->
+<!--      </button>-->
+    </td>
+  </tr>
+</table>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Comfirm Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure to delete <input style="color: red; border: none" [value]="id" [textContent]="name">
+        (Do not remove)
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
